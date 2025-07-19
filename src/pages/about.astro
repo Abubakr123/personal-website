@@ -57,83 +57,25 @@ const galleryImages = [
 <Layout title={title} description={description}>
   <div class="flex flex-col min-h-screen">
     <Navigation />
-    <div class="relative flex-1 overflow-y-auto">
+    <div class="relative flex-1 overflow-y-auto snap-y snap-mandatory">
       <StarBackground />
-      <!-- Add breadcrumb navigation with proper spacing below the main nav -->
-      <div class="pt-16">
-        <BreadcrumbNavigation items={[{ label: "About", href: "/about" }]} />
-      </div>
-
-      <!-- Section Navigation -->
-      <div class="bg-[#023047]/90 backdrop-blur-md sticky top-16 z-30 border-b border-[#8ecae6]/20 overflow-x-auto">
-        <div class="container mx-auto">
-          <div class="flex space-x-4 px-4" id="section-nav">
-            <a href="#profile" class="section-link text-sm py-3 px-2 border-b-2 border-transparent text-[#8ecae6] hover:text-[#fb8500] hover:border-[#fb8500] transition-colors duration-200" data-section="profile">Profile</a>
-            <a href="#biography" class="section-link text-sm py-3 px-2 border-b-2 border-transparent text-[#8ecae6] hover:text-[#fb8500] hover:border-[#fb8500] transition-colors duration-200" data-section="biography">Biography</a>
-            <a href="#education" class="section-link text-sm py-3 px-2 border-b-2 border-transparent text-[#8ecae6] hover:text-[#fb8500] hover:border-[#fb8500] transition-colors duration-200" data-section="education">Education</a>
-            <a href="#skills" class="section-link text-sm py-3 px-2 border-b-2 border-transparent text-[#8ecae6] hover:text-[#fb8500] hover:border-[#fb8500] transition-colors duration-200" data-section="skills">Skills</a>
-            <a href="#gallery" class="section-link text-sm py-3 px-2 border-b-2 border-transparent text-[#8ecae6] hover:text-[#fb8500] hover:border-[#fb8500] transition-colors duration-200" data-section="gallery">Gallery</a>
-          </div>
+      <div class="container mx-auto px-4 pt-20 relative z-10">
+        <BreadcrumbNavigation />
+        
+        <!-- Section Navigation -->
+        <div class="bg-space-blue-dark/30 rounded-xl p-4 border border-space-blue-light/10 mb-8 sticky top-16 z-40 backdrop-blur-sm">
+          <nav class="flex flex-wrap gap-2">
+            <a href="#about" class="px-3 py-1 text-sm bg-space-blue-light/10 hover:bg-space-blue-light/20 text-white rounded-full transition">About</a>
+            <a href="#education" class="px-3 py-1 text-sm bg-space-blue-light/10 hover:bg-space-blue-light/20 text-white rounded-full transition">Education</a>
+            <a href="#research-interests" class="px-3 py-1 text-sm bg-space-blue-light/10 hover:bg-space-blue-light/20 text-white rounded-full transition">Research</a>
+            <a href="#skills" class="px-3 py-1 text-sm bg-space-blue-light/10 hover:bg-space-blue-light/20 text-white rounded-full transition">Skills</a>
+            <a href="#gallery" class="px-3 py-1 text-sm bg-space-blue-light/10 hover:bg-space-blue-light/20 text-white rounded-full transition">Gallery</a>
+          </nav>
         </div>
-      </div>
-      
-      <script>
-        // Function to highlight the active section in the navigation
-        document.addEventListener('DOMContentLoaded', () => {
-          const sections = ['profile', 'biography', 'education', 'skills', 'gallery'];
-          const navLinks = document.querySelectorAll('.section-link');
-          
-          // Intersection Observer to detect which section is visible
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                const activeSection = entry.target.id;
-                
-                // Update active navigation link
-                navLinks.forEach(link => {
-                  const section = link.getAttribute('data-section');
-                  if (section === activeSection) {
-                    link.classList.add('text-[#fb8500]', 'border-[#fb8500]');
-                    link.classList.remove('text-[#8ecae6]', 'border-transparent');
-                  } else {
-                    link.classList.remove('text-[#fb8500]', 'border-[#fb8500]');
-                    link.classList.add('text-[#8ecae6]', 'border-transparent');
-                  }
-                });
-              }
-            });
-          }, {
-            threshold: 0.5,
-            rootMargin: '-100px 0px -100px 0px'
-          });
-          
-          // Observe all sections
-          sections.forEach(section => {
-            const element = document.getElementById(section);
-            if (element) observer.observe(element);
-          });
-          
-          // Add smooth scrolling to section links
-          navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-              e.preventDefault();
-              const sectionId = link.getAttribute('data-section');
-              const section = sectionId ? document.getElementById(sectionId) : null;
-              if (section) {
-                window.scrollTo({
-                  top: section.offsetTop - 96,
-                  behavior: 'smooth'
-                });
-              }
-            });
-          });
-        });
-      </script>
-      
-      <div class="container mx-auto px-4 py-8 relative z-10">
-        <div class="max-w-4xl mx-auto space-y-8">
+        
+        <div class="max-w-4xl mx-auto space-y-12 snap-mandatory snap-y">
         <!-- Profile Section -->
-        <div id="profile" class="flex flex-col md:flex-row items-center md:items-start gap-8 min-h-[calc(100vh-theme(spacing.16)-96px)]">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 min-h-[calc(100vh-theme(spacing.16)-64px)] snap-start snap-always">
           <div class="w-48 h-48 md:w-64 md:h-64 relative">
             <img
               src="/images/gallery/Abubakr_profile+photo.jpg"
@@ -178,7 +120,7 @@ const galleryImages = [
         </div>
 
         <!-- Biography Section -->
-        <div id="biography" class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacing.16)-96px)] overflow-y-auto scroll-mt-20">
+        <div class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacing.16)-64px)] snap-start snap-always overflow-y-auto mt-8">
           <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#FFFFFF]">Biography</h2>
           <div class="space-y-4 text-[#F8F9FA]/90 text-base md:text-lg leading-relaxed">
             <h3 class="text-2xl font-semibold text-[#8ecae6] mb-2">About Abubakr</h3>
@@ -201,7 +143,7 @@ const galleryImages = [
         </div>
 
         <!-- Education Section -->
-        <div id="education" class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacing.16)-96px)] overflow-y-auto scroll-mt-20">
+        <div class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacing.16)-64px)] snap-start snap-always overflow-y-auto mt-8">
           <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#FFFFFF]">Education</h2>
           <div class="space-y-8">
             <div class="flex flex-col md:flex-row gap-4 items-start">
@@ -247,7 +189,7 @@ const galleryImages = [
         </div>
 
         <!-- Skills Section -->
-        <div id="skills" class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacing.16)-96px)] overflow-y-auto scroll-mt-20">
+        <div class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacing.16)-64px)] snap-start snap-always overflow-y-auto mt-8">
           <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#FFFFFF]">Skills & Expertise</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -274,11 +216,11 @@ const galleryImages = [
         </div>
 
         <!-- Photo Gallery Section -->
-        <div id="gallery" class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacing.16)-96px)] overflow-y-auto mt-8 scroll-mt-20">
+        <div class="bg-[#023047]/80 backdrop-blur-md p-8 rounded-2xl border border-[#8ecae6]/20 min-h-[calc(100vh-theme(spacer.16)-64px)] snap-start snap-always overflow-y-auto mt-8">
           <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#FFFFFF]">Gallery</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
-              <div class={`relative group overflow-hidden ${image.span || ''} bg-[#023047]/20 rounded-lg h-64`}>
+              <div key={index} class={`relative group overflow-hidden ${image.span || ''} bg-[#023047]/20 rounded-lg h-64`}>
                 <img
                   src={image.src}
                   alt={image.alt}

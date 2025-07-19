@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build --outDir docs",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "npm run build && git add docs && git commit -m \"Build for GitHub Pages\" && git push origin main"
+    "deploy": "npm run build && git add . && git commit -m \"Deploy website updates\" && git push origin main"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
