@@ -3,10 +3,10 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://abubakryagob.github.io',
-  base: '/',
+  // No trailing slash needed for base
   build: {
     outDir: 'docs',
-    assets: 'astro'
+    assets: 'assets' // Changed from 'astro' to 'assets' for clearer structure
   },
   integrations: [tailwind()],
 });
