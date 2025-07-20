@@ -5,12 +5,13 @@ const talks = [
     title: "The X-ray Mysteries of Neutron Stars and White Dwarfs",
     date: "June 2024",
     event: "ESAC, Oral presentation, Madrid, Spain",
-    images: ["/images/gallery/group_photo_WD_conf.jpeg", "/images/gallery/wd_madrid_conf.jpeg"]
+    images: ["/images/gallery/group_photo_WD_conf.jpeg"]
   },
   {
     title: "XMM-Newton survey legacy for Athena and beyond workshop",
     date: "26-30 Feb 2024",
-    event: "Toulouse, France"
+    event: "Toulouse, France",
+    images: ["/images/gallery/XMM2Athena.jpg"]
   },
   {
     title: "The Scientific Communication in Astronomy School – 2nd edition",
@@ -39,7 +40,8 @@ const talks = [
   {
     title: "EAS2022 annual meeting",
     date: "July 2022",
-    event: "Valencia, Spain"
+    event: "Valencia, Spain",
+    images: ["/images/gallery/eas2022.jpeg"]
   },
   {
     title: "PHAROS 2022",
@@ -60,7 +62,8 @@ const talks = [
   },
   {
     title: "2018 Postgraduate Bursary Conference.",
-    date: "Nov 2018"
+    date: "Nov 2018",
+    images: ["/images/gallery/SARAO_Bursary_Conference_171.JPG"]
   },
   {
     title: "Pulsars and FRBs search software in the era of real-time surveys.",
@@ -94,9 +97,9 @@ const talks = [
             {talk.event && <div class="text-space-blue-light text-sm mb-2">{talk.event}</div>}
           </div>
           {talk.images && talk.images.length > 0 && (
-            <div class="flex gap-2 mb-2">
+            <div class="flex gap-4 mb-4">
               {talk.images.map(img => (
-                <img src={img} alt={talk.title} class="w-28 h-20 object-cover rounded-lg border border-space-blue-light/20 shadow" loading="lazy" />
+                <img src={img} alt={talk.title} class="w-64 h-48 object-cover rounded-lg border border-space-blue-light/20 shadow" loading="lazy" />
               ))}
             </div>
           )}

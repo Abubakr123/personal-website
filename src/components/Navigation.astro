@@ -16,17 +16,26 @@ const navItems = [
 ---
 
 <nav 
-  x-data="{ mobileMenuOpen: false }" 
+  x-data="{ mobileMenuOpen: false, scrollProgress: 0 }" 
   class="fixed top-0 w-full bg-space-blue-dark/80 backdrop-blur-md z-50 border-b border-space-blue-light/10 transition-all duration-300"
   :class="{ 'shadow-md': window.scrollY > 0 }"
-  @scroll.window="navShadow = (window.scrollY > 0)"
+  @scroll.window="navShadow = (window.scrollY > 0); scrollProgress = Math.round((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)"
 >
+  <!-- Scroll Progress Bar -->
+  <div class="h-0.5 bg-space-blue-light/20 w-full absolute bottom-0 left-0">
+    <div 
+      class="h-full bg-space-orange transition-all duration-100 ease-out" 
+      :style="`width: ${scrollProgress}%`"
+    ></div>
+  </div>
+  
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <div class="flex items-center">
-        <a href="/" class="text-white font-bold text-xl hover:text-space-blue-light transition-colors flex items-center">
-          <span class="mr-1">Abubakr Ibrahim</span>
+        <a href="/" class="group text-white font-bold text-xl hover:text-space-blue-light transition-colors flex items-center">
+          <span class="mr-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-space-orange after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">Abubakr Ibrahim</span>
+          <span class="text-space-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-0 group-hover:translate-x-1">→</span>
         </a>
       </div>
 
@@ -44,10 +53,10 @@ const navItems = [
               return (
                 <a
                   href={href}
-                  class={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  class={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 relative ${
                     isActive 
-                      ? "text-space-orange" 
-                      : "text-gray-300 hover:text-space-blue-light"
+                      ? "text-space-orange after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:bg-space-orange after:rounded-full" 
+                      : "text-gray-300 hover:text-space-blue-light hover:bg-space-blue-light/5"
                   }`}
                 >
                   {text}
@@ -98,16 +107,30 @@ const navItems = [
     </div>
   </div>
 
+  <!-- Mobile menu backdrop -->
+  <div 
+    x-show="mobileMenuOpen"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
+    @click="mobileMenuOpen = false"
+    style="display: none;"
+  ></div>
+  
   <!-- Mobile menu -->
   <div 
     x-show="mobileMenuOpen" 
-    x-transition:enter="transition ease-out duration-200"
-    x-transition:enter-start="transform opacity-0 scale-95"
-    x-transition:enter-end="transform opacity-100 scale-100"
-    x-transition:leave="transition ease-in duration-150"
-    x-transition:leave-start="transform opacity-100 scale-100"
-    x-transition:leave-end="transform opacity-0 scale-95"
-    class="md:hidden bg-space-blue-dark/95 backdrop-blur-md"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="transform opacity-0 -translate-y-4"
+    x-transition:enter-end="transform opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="transform opacity-100 translate-y-0"
+    x-transition:leave-end="transform opacity-0 -translate-y-4"
+    class="md:hidden bg-space-blue-dark/95 backdrop-blur-md border-b border-space-blue-light/10 shadow-lg"
     style="display: none;"
   >
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-space-blue-light/10">
@@ -140,16 +163,30 @@ const navItems = [
 <script>
   // Add smooth scroll behavior
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
         
-        const targetId = this.getAttribute('href').substring(1);
+        const href = anchor.getAttribute('href');
+        if (!href) return;
+        
+        const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
         
         if (targetElement) {
+          // Calculate offset - account for fixed header
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          // Add a highlight animation to the target element
+          targetElement.classList.add('scroll-highlight');
+          setTimeout(() => {
+            targetElement.classList.remove('scroll-highlight');
+          }, 2000);
+          
           window.scrollTo({
-            top: targetElement.offsetTop - 80,
+            top: offsetPosition,
             behavior: 'smooth'
           });
         }
@@ -157,3 +194,17 @@ const navItems = [
     });
   });
 </script>
+
+<style>
+  /* Add animation for elements that are scrolled to */
+  @keyframes scroll-highlight {
+    0% { box-shadow: 0 0 0 0 rgba(251, 133, 0, 0); }
+    25% { box-shadow: 0 0 0 10px rgba(251, 133, 0, 0.1); }
+    50% { box-shadow: 0 0 0 15px rgba(251, 133, 0, 0.1); }
+    100% { box-shadow: 0 0 0 0 rgba(251, 133, 0, 0); }
+  }
+  
+  .scroll-highlight {
+    animation: scroll-highlight 2s ease-out;
+  }
+</style>
