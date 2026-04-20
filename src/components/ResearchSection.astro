@@ -1,58 +1,260 @@
 <section id="research" class="py-20 bg-gradient-to-b from-transparent to-space-blue-dark/30">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-      Research
-    </h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="group bg-space-blue-dark/40 backdrop-blur-sm rounded-xl p-6 border border-space-blue-light/10 hover:border-space-blue-light/30 transition-all duration-300">
-        <div class="bg-space-blue/20 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-space-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
+    
+    <!-- HERO SECTION -->
+    <div class="mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
+        Research & Technical Expertise
+      </h2>
+      <p class="text-xl text-space-blue-light text-center mb-8 max-w-3xl mx-auto">
+        Bridging extreme astrophysics with advanced data science; from magnetar outbursts to automated transient pipelines.
+      </p>
+      <p class="text-gray-300 text-center leading-relaxed max-w-4xl mx-auto">
+        My work exists at the intersection of high-energy time-domain astrophysics and advanced signal processing. Using the world's leading radio and X-ray observatories, I investigate the physics of coherent radio emission and extreme magnetospheres. Simultaneously, I develop the automated pipelines, statistical algorithms, and HPC workflows required to process massive, real-time datasets from next-generation sky surveys.
+      </p>
+      <figure class="mt-6 mb-2">
+        <img src="/images/gallery/magnetar_flare_CU.gif" 
+             alt="Animated simulation of a magnetar flare"
+             class="rounded-xl shadow-lg w-full max-w-2xl mx-auto object-cover border border-black/10 dark:border-white/10">
+        <figcaption class="text-xs text-center mt-2 text-gray-400 italic">
+          Credit: NASA's Goddard Space Flight Center / Chris Smith (USRA/GESTAR)
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- SECTION 1: Scientific Focus: The Dynamic Time-Domain Sky -->
+    <div class="mb-20">
+      <h3 class="text-3xl font-bold text-white mb-12 text-center">
+        Scientific Focus: The Dynamic Time-Domain Sky
+      </h3>
+      
+      <!-- BLOCK 1: Magnetar Outbursts & The FRB Connection -->
+      <div class="mb-12 gap-8 flex flex-col lg:flex-row lg:items-center">
+        <div class="lg:w-1/2">
+          <h4 class="text-2xl font-semibold text-space-blue-light mb-4">
+            Magnetar Outbursts & The FRB Connection
+          </h4>
+          <p class="text-gray-300 leading-relaxed">
+            Magnetars are currently the leading progenitor candidates for Fast Radio Bursts (FRBs). However, the exact trigger mechanisms and energy partition during an outburst remain unsolved. My research focuses on the multi-wavelength evolution of these extreme events. I have led deep X-ray and radio campaigns during the reactivations of 
+            <a href="https://doi.org/10.3847/1538-4357/ad293b" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="underline font-medium hover:text-space-blue-light">
+              SGR J1935+2154 <span class="text-xs align-super">[Ibrahim et al. 2024]</span>
+            </a>
+            and 
+            <a href="https://doi.org/10.3847/1538-4357/aca528" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="underline font-medium hover:text-space-blue-light">
+              Swift J1818.0–1607 <span class="text-xs align-super">[Ibrahim et al. 2023]</span>
+            </a>,
+            integrating data from XMM-Newton, NuSTAR, and the VLA to characterize their broadband spectral and timing evolution.
+          </p>
         </div>
-        <h3 class="text-xl font-semibold text-white mb-4 group-hover:text-space-blue-light transition-colors">
-          Magnetar Physics
-        </h3>
-        <p class="text-gray-300 mb-4">
-          Investigating the extreme physics of magnetars, including their formation, evolution, and unique properties that make them some of the most magnetic objects in the universe.
-        </p>
-        <a href="#" class="inline-flex items-center text-space-blue-light hover:text-space-orange-light transition-colors">
-          Read more 
-          <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
+        <div class="lg:w-1/2">
+          <img src="/images/research/magnetar-lightcurve.png" alt="Multi-wavelength magnetar lightcurve" class="rounded-lg shadow-md border border-black/10 dark:border-white/10 w-full object-cover" />
+        </div>
       </div>
-      <div class="group bg-space-blue-dark/40 backdrop-blur-sm rounded-xl p-6 border border-space-blue-light/10 hover:border-space-blue-light/30 transition-all duration-300">
-        <div class="bg-space-blue/20 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-space-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
-          </svg>
+
+      <!-- BLOCK 2: Long Period Transients & White Dwarf Pulsars (Image Left) -->
+      <div class="mb-12 gap-8 flex flex-col-reverse lg:flex-row lg:items-center">
+        <div class="lg:w-1/2">
+          <figure>
+            <img src="/images/research/lpt-p-pdot.png" 
+                 alt="P-Pdot diagram showing pulsars, magnetars, and the theoretical death line with Long Period Transients"
+                 class="rounded-lg shadow-md border border-black/10 dark:border-white/10 w-full object-cover">
+            <figcaption class="text-xs text-center mt-1 text-gray-400 italic">
+              Credit: Rea et al. (2026) — 
+              <a href="https://arxiv.org/abs/2601.10393" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="underline hover:text-space-blue-light">
+                arXiv:2601.10393
+              </a>
+            </figcaption>
+          </figure>
         </div>
-        <h3 class="text-xl font-semibold text-white mb-4 group-hover:text-space-blue-light transition-colors">
-          X-ray Astronomy
-        </h3>
-        <p class="text-gray-300 mb-4">
-          Using X-ray observations to study high-energy phenomena in the universe, focusing on neutron stars and their interactions with their environment.
-        </p>
-        <a href="#" class="inline-flex items-center text-space-blue-light hover:text-space-orange-light transition-colors">
-          Read more 
-          <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
+        <div class="lg:w-1/2">
+          <h4 class="text-2xl font-semibold text-space-blue-light mb-4">
+            Long Period Transients & White Dwarf Pulsars
+          </h4>
+          <p class="text-gray-300 leading-relaxed">
+            Recent discoveries of ultra-long period radio transients are challenging the fundamental limits of pulsar physics. I am particularly interested in understanding the magnetospheric mechanisms powering these objects, and testing whether 'magnetic bridges' hypothesized for white dwarf binaries share acceleration physics with magnetars. I am currently leading an archival search for coherent radio emission from isolated magnetic white dwarfs (e.g., ZTF J1901+1458) using dynamic spectra analysis on ASKAP and VAST data.
+          </p>
+        </div>
+      </div>
+
+      <!-- BLOCK 3: AI-Generated Audio Overview (NotebookLM) -->
+      <div class="mb-12 gap-8 flex flex-col lg:flex-row lg:items-center">
+        <div class="lg:w-1/2">
+          <h4 class="text-2xl font-semibold text-space-blue-light mb-4">
+            AI-Generated Audio Overview
+          </h4>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Listen to an AI-generated 'Deep Dive' podcast discussing the findings, implications, and physics of my first-author publications on magnetar outbursts.
+          </p>
+          <div class="bg-space-blue-dark/60 backdrop-blur-sm rounded-lg p-8 border border-space-blue-light/20 flex items-center justify-center h-32 w-full">
+            <div class="text-center">
+              <svg class="w-12 h-12 text-space-blue-light mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <p class="text-space-blue-light text-sm">[ NotebookLM Audio Embed Slot ]</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/2">
+          <div class="bg-space-blue/10 rounded-lg p-8 border border-space-blue-light/10">
+            <p class="text-gray-300 text-sm leading-relaxed italic">
+              This section is reserved for an embedded audio player from NotebookLM. Once generated, the audio will provide a conversational overview of key research findings and their broader implications for time-domain astrophysics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Technical & Methodological Expertise -->
+    <div class="mb-20">
+      <h3 class="text-3xl font-bold text-white mb-12 text-center">
+        Technical & Methodological Expertise
+      </h3>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- CARD 1: Pipeline Automation & Architecture -->
+        <div class="bg-space-blue-dark/50 backdrop-blur-sm rounded-xl p-6 border border-space-blue-light/10 hover:border-space-blue-light/30 transition-all duration-300 shadow-sm hover:shadow-md">
+          <img src="/images/research/eBANDERAS.png" alt="eBANDERAS automated X-ray transient detection pipeline architecture — A.Y. Ibrahim" class="rounded-md mb-4 w-full object-cover border border-black/10 dark:border-white/10" />
+          <h4 class="text-xl font-semibold text-white mb-3">
+            Pipeline Automation & Architecture
+          </h4>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Leading the development of the transient search module for the eBANDERAS pipeline (eROSITA). Designing automated detection workflows that apply statistical variability tests to massive streams of survey lightcurves, preparing architectures for real-time deployment.
+          </p>
+        </div>
+
+        <!-- CARD 2: High-Performance Computing (HPC) -->
+        <div class="bg-space-blue-dark/50 backdrop-blur-sm rounded-xl p-6 border border-space-blue-light/10 hover:border-space-blue-light/30 transition-all duration-300 shadow-sm hover:shadow-md">
+          <div class="bg-space-blue/10 rounded-md mb-4 w-full h-40 flex items-center justify-center border border-space-blue-light/20">
+            <svg class="w-16 h-16 text-space-blue-light/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold text-white mb-3">
+            High-Performance Computing (HPC)
+          </h4>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Extensive experience utilizing GPU/CPU clusters for heavy-duty cycles of data reduction. Proficient in processing TB-scale datasets from interferometers like LOFAR and ASKAP, optimizing signal processing algorithms for production-scale environments.
+          </p>
+        </div>
+
+        <!-- CARD 3: Data Science & Time-Series Analysis -->
+        <div class="bg-space-blue-dark/50 backdrop-blur-sm rounded-xl p-6 border border-space-blue-light/10 hover:border-space-blue-light/30 transition-all duration-300 shadow-sm hover:shadow-md">
+          <div class="bg-space-blue/10 rounded-md mb-4 w-full h-40 flex items-center justify-center border border-space-blue-light/20">
+            <svg class="w-16 h-16 text-space-blue-light/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold text-white mb-3">
+            Data Science & Time-Series Analysis
+          </h4>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Expert in Python and Bash scripting for complex data wrangling. Specializing in time-series analysis, aperiodic variability, dynamic spectra, and signal processing of noisy, multi-dimensional astronomical datasets.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Instruments & Tooling -->
+    <div class="mb-20">
+      <h3 class="text-3xl font-bold text-white mb-12 text-center">
+        Instruments & Tooling
+      </h3>
+      
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Left Column: Text List -->
+        <div class="space-y-6">
+          <div>
+            <h4 class="text-lg font-semibold text-space-blue-light mb-3">
+              X-Ray Observatories
+            </h4>
+            <p class="text-gray-300 text-sm">
+              XMM-Newton, NuSTAR, NICER, Swift/XRT, eROSITA, Integral
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-space-blue-light mb-3">
+              Radio Interferometers
+            </h4>
+            <p class="text-gray-300 text-sm">
+              VLA, ASKAP, LOFAR, NRT
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-space-blue-light mb-3">
+              Scientific Software
+            </h4>
+            <p class="text-gray-300 text-sm">
+              HEASOFT, SAS, XSPEC, TEMPO2, PSRCHIVE, CASA
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-space-blue-light mb-3">
+              Programming
+            </h4>
+            <p class="text-gray-300 text-sm">
+              Python (SciPy, Pandas, Astropy), Bash, Linux/Unix environments
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Images -->
+        <div class="space-y-4">
+          <figure>
+            <img src="/images/research/x-ray-telescopes.png" 
+                 alt="X-ray telescopes overview: XMM-Newton, Swift, NuSTAR, NICER, Integral, eROSITA"
+                 class="rounded-lg shadow-md border border-black/10 dark:border-white/10 w-full object-cover">
+            <figcaption class="text-xs text-center mt-1 text-gray-400 italic">
+              Credit: Abubakr Ibrahim (PhD thesis slide)
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="/images/research/radio_telescopes.png" 
+                 alt="Radio telescope facilities: VLA, ASKAP, LOFAR used in my research"
+                 class="rounded-lg shadow-md border border-black/10 dark:border-white/10 w-full object-cover">
+            <figcaption class="text-xs text-center mt-1 text-gray-400 italic">
+              Credit: Abubakr Ibrahim (PhD thesis slide)
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Next Steps -->
+    <div class="text-center">
+      <h3 class="text-3xl font-bold text-white mb-6">
+        Next Steps
+      </h3>
+      <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+        I am actively seeking Postdoctoral Fellowships in time-domain radio/X-ray astronomy, as well as roles in Data Science, Space Tech, and Software Engineering within industry. I bring a unique blend of rigorous scientific inquiry and robust pipeline engineering.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/publications"
+          class="inline-flex items-center justify-center bg-space-blue-light text-black px-8 py-3 rounded-lg font-semibold hover:bg-space-orange-light transition-all duration-300 shadow-md hover:shadow-lg"
+        >
+          View Publications →
+        </a>
+        <a
+          href="/cv"
+          class="inline-flex items-center justify-center bg-transparent text-space-blue-light px-8 py-3 rounded-lg font-semibold border border-space-blue-light hover:border-space-orange-light hover:text-space-orange-light transition-all duration-300"
+        >
+          Download CV →
         </a>
       </div>
     </div>
-    <div class="mt-12 text-center">
-      <a
-        href="#publications"
-        class="inline-flex items-center bg-space-blue-light/10 text-white px-8 py-3 rounded-full font-semibold hover:bg-space-blue-light/20 transition-all duration-200 border border-space-blue-light/30 hover:border-space-blue-light/50 group"
-      >
-        View Publications
-        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
-    </div>
+
   </div>
 </section>

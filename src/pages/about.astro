@@ -17,11 +17,6 @@ const galleryImages = [
     span: "col-span-2"
   },
   {
-    src: "/images/gallery/Artist_impression_active-magnetar-Swift-J1818.0-1607_magnetic_fields.jpg",
-    alt: "Artist's impression of Swift J1818.0-1607",
-    caption: "Artist's impression of magnetar Swift J1818.0-1607"
-  },
-  {
     src: "/images/gallery/phd_defense.jpg",
     alt: "PhD Defense",
     caption: "My PhD Defense"
@@ -50,6 +45,26 @@ const galleryImages = [
     src: "/images/gallery/PSX_20221110_014301.jpeg",
     alt: "Research Activity",
     caption: "During a research activity"
+  },
+  {
+    src: "/images/gallery/MeerKAT_group.JPG",
+    alt: "Group photo at the MeerKAT radio telescope array, Northern Cape, South Africa",
+    caption: "At the MeerKAT radio telescope; South Africa's 64-dish SKA precursor array, Northern Cape in 2028."
+  },
+  {
+    src: "/images/gallery/Abu_nature_CPT.jpg",
+    alt: "On Lion's Head mountain, Cape Town, South Africa",
+    caption: "At the Lion's Head mountain, Cape Town, South Africa."
+  },
+  {
+    src: "/images/gallery/SAAO.JPG",
+    alt: "At the South African Astronomical Observatory (SAAO), Cape Town",
+    caption: "At the South African Astronomical Observatory (SAAO); where I volunteered as a telescope demonstrator during public open nights from 2017 to 2020."
+  },
+  {
+    src: "/images/gallery/Bokaap.jpg",
+    alt: "In the Bo-Kaap neighbourhood, Cape Town, South Africa",
+    caption: "In Cape Town's Bo-Kaap; a neighbourhood as colourful as the data I was processing nearby."
   }
 ];
 ---
@@ -71,45 +86,6 @@ const galleryImages = [
             <a href="#skills" class="px-3 py-1 text-sm bg-space-blue-light/10 hover:bg-space-blue-light/20 text-white rounded-full transition">Skills</a>
             <a href="#gallery" class="px-3 py-1 text-sm bg-space-blue-light/10 hover:bg-space-blue-light/20 text-white rounded-full transition">Gallery</a>
           </nav>
-        </div>
-        
-        <div class="max-w-4xl mx-auto space-y-12 snap-mandatory snap-y">
-        <!-- Profile Section -->
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 min-h-[calc(100vh-theme(spacing.16)-64px)] snap-start snap-always">
-          <div class="w-48 h-48 md:w-64 md:h-64 relative">
-            <img
-              src="/images/gallery/Abubakr_profile+photo.jpg"
-              alt="Abubakr Ibrahim"
-              class="rounded-2xl object-cover w-full h-full shadow-xl border-2 border-[#8ecae6]/30"
-            />
-            <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-[#023047]/50 to-transparent"></div>
-          </div>
-          
-          <div class="flex-1 text-center md:text-left">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-[#FFFFFF]">Abubakr Ibrahim</h1>
-            <p class="text-xl md:text-2xl text-[#8ecae6] mb-6">Astrophysicist & Researcher</p>
-            <div class="space-y-2 text-lg text-[#F8F9FA]/90 mb-6">
-              <div>📚 Ph.D. in Astrophysics – ICE-CSIC & UAB</div>
-              <div>🔭 Focused on Magnetars, Neutron Stars & High-Energy Astrophysics</div>
-              <div>📍 Based in Barcelona, Spain</div>
-            </div>
-            <div class="mt-8">
-              <a
-                href="/images/gallery/Abubakr_Ibrahim_CV.pdf"
-                target="_blank"
-                class="inline-flex items-center px-6 py-3 rounded-full bg-[#fb8500] hover:bg-[#fb8500]/90 text-white font-semibold transition-colors duration-200"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <line x1="10" y1="9" x2="8" y2="9"></line>
-                </svg>
-                Download CV
-              </a>
-            </div>
-          </div>
         </div>
 
         <!-- Custom Quote Section -->
@@ -220,7 +196,7 @@ const galleryImages = [
           <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#FFFFFF]">Gallery</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
-              <div key={index} class={`relative group overflow-hidden ${image.span || ''} bg-[#023047]/20 rounded-lg h-64`}>
+                <div class={`relative group overflow-hidden ${image.span || ''} bg-[#023047]/20 rounded-lg h-64`}>
                 <img
                   src={image.src}
                   alt={image.alt}
