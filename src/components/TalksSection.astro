@@ -5,7 +5,8 @@ const talks = [
     title: "The X-ray Mysteries of Neutron Stars and White Dwarfs",
     date: "June 2024",
     event: "ESAC, Oral presentation, Madrid, Spain",
-    images: ["/images/gallery/group_photo_WD_conf.jpeg"]
+    images: ["/images/gallery/group_photo_WD_conf.jpeg"],
+    slidesPdf: "/documents/talks/The_X-RAY_Mysteries_of_NSs_and_WDs.pdf"
   },
   {
     title: "XMM-Newton survey legacy for Athena and beyond workshop",
@@ -17,19 +18,22 @@ const talks = [
     title: "The Scientific Communication in Astronomy School – 2nd edition",
     date: "1-6 October 2023",
     event: "Bologna, Italy",
-    images: ["/images/gallery/GroupPhoto_bologna.JPG"]
+    images: ["/images/gallery/GroupPhoto_bologna.JPG"],
+    slidesPdf: "/documents/talks/The%20Scientific%20Communication%20in%20Astronomy.pdf"
   },
   {
     title: "The X-Ray Universe 2023 Conference, Oral presentation",
     date: "June 2023",
     event: "Greece, Athens",
-    images: ["/images/gallery/XrayUniverse2023_GroupPhoto_athena.jpg"]
+    images: ["/images/gallery/XrayUniverse2023_GroupPhoto_athena.jpg"],
+    slidesPdf: "/documents/talks/The%20X-Ray%20Universe%202023%20Conference.pdf"
   },
   {
     title: "The Transient Universe 2023 school",
     date: "May 2023",
     event: "Cargese, France",
-    images: ["/images/gallery/transientuniverse_june2023_corseca.jpeg"]
+    images: ["/images/gallery/transientuniverse_june2023_corseca.jpeg"],
+    slidesPdf: "/documents/talks/The%20Transient%20Universe%202023%20school.pdf"
   },
   {
     title: "Exploring the Hot and Energetic Universe: the third scientific conference dedicated to the Athena X-ray Observatory",
@@ -95,6 +99,19 @@ const talks = [
             <h3 class="text-xl font-semibold text-white mb-1">{talk.title}</h3>
             <div class="text-space-orange text-sm font-semibold mb-1">{talk.date}</div>
             {talk.event && <div class="text-space-blue-light text-sm mb-2">{talk.event}</div>}
+            {"slidesPdf" in talk && talk.slidesPdf && (
+              <a
+                href={talk.slidesPdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 mt-2 text-space-orange-light hover:text-space-blue-light text-sm font-semibold transition-colors"
+              >
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Slides (PDF)
+              </a>
+            )}
           </div>
           {talk.images && talk.images.length > 0 && (
             <div class="flex gap-4 mb-4">
